@@ -1,0 +1,8 @@
+.navbar {
+    width: 117px;
+    height: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 91px;
+    left: 0;
+}
