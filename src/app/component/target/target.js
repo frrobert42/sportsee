@@ -4,6 +4,11 @@ import "./target.css";
 
 export default function Target(props) {
 
+    console.log(props.sessions);
+    const xAxis = {
+        // dataKey={'day'} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false}
+    };
+
     return (
         <div className='target bg-red-600'>
             <h3> Durée moyenne des sessions </h3>
@@ -14,13 +19,9 @@ export default function Target(props) {
                     data={props.sessions}
                     margin={{top: 5, right: 10, left: 10, bottom: 5}}
                 >
-                    {/*<XAxis dataKey='day' stroke='#FFFFFF' opacity={0.5} tickLine={false} axisLine={false}/>*/}
-                    {/*<YAxis padding={{top: 50}} stroke='#FFFFFF' opacity={0.5} tickLine={false} axisLine={false} hide/>*/}
-                    {/*<Tooltip content={*/}
-                    {/*    <div className='custom-tooltip-objectif'>*/}
-                    {/*        <p> {`60 min`}</p>*/}
-                    {/*    </div>*/}
-                    {/*}/>*/}
+                    <XAxis dataKey={'day'} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false}></XAxis>
+                    <YAxis padding={{top: 50}} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false} hide></YAxis>
+                    <Tooltip content={<TooltipTarget/>}/>
                     <Legend/>
                     <Line type='basis' dataKey='sessionLength' stroke='#FFFFFF' dot={false} strokeWidth={2}
                           legendType='none'/>
@@ -28,4 +29,15 @@ export default function Target(props) {
             </ResponsiveContainer>
         </div>
     );
+}
+
+const TooltipTarget = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+        return (
+            <div className='custom-tooltip-objectif'>
+                <p> {`${payload[0].value} min`}</p>
+            </div>
+        )
+    }
+    return null
 }

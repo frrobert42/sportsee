@@ -6,6 +6,13 @@ import {useState} from "react";
 import Target from "@/app/component/target/target";
 import Radar from "@/app/component/radar/radar";
 import Rating from "@/app/component/rating/rating";
+import Stats from "@/app/component/stats/stats";
+
+import caloriesIcon from "/public/img/calories-icon.svg";
+import carbsIcon from "/public/img/carbs-icon.svg";
+import fatIcon from "/public/img/fat-icon.png";
+import proteinIcon from "/public/img/protein-icon.svg";
+
 
 export default function Home() {
     let [user, setUser] = useState(null);
@@ -44,6 +51,7 @@ export default function Home() {
     }
 
     if (!user || !activity || !sessions || !performance) return (<></>);
+    console.log(user);
 
   return (
     <main className="min-h-screen h-max bg-white text-black pt-32 pb-32">
@@ -53,7 +61,7 @@ export default function Home() {
             }
         </h1>
         <p className={"mt-5"}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-        <div id="charts" className={"flex flex-row"}>
+        <div id="charts" className={"flex flex-row flex-wrap"}>
             <div className={"flex flex-col gap-y-20 w-100"}>
                 {activity && <ActivityChart activity={activity} />}
                 <div className={"flex flex-row flex-wrap gap-14 mt-100"}>
@@ -62,11 +70,11 @@ export default function Home() {
                     {user && <Rating score={user.todayScore}/>}
                 </div>
             </div>
-            <div className={"mt-100 w-3/12"}>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+            <div className={"my-100 mx-auto gap-20 flex flex-col"}>
+                <Stats stats={{title: "Calories", icon: caloriesIcon, unit: "kcal" , value: user.keyData.calorieCount}} />
+                <Stats stats={{title: "Proteines", icon: proteinIcon, unit: "g" , value: user.keyData.proteinCount}} />
+                <Stats stats={{title: "Glucides", icon: carbsIcon, unit: "g" , value: user.keyData.carbohydrateCount}} />
+                <Stats stats={{title: "Lipides", icon: fatIcon, unit: "g" , value: user.keyData.lipidCount}} />
             </div>
         </div>
     </main>
