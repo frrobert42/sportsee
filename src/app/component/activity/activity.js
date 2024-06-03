@@ -4,22 +4,14 @@ import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis}
 
 export default function ActivityChart(data) {
 
-    if (!data) {
-        data = [];
-    }
+    if (!data.activity.sessions) return (<></>);
 
-    let dataWithIndex = data.activity.map((item, index) => {
+    let dataWithIndex = data.activity.sessions.map((item, index) => {
         return {
             ...item,
             index: index + 1
         }
     });
-
-    if (!dataWithIndex) {
-        dataWithIndex = [];
-    }
-
-    console.log(data)
 
     return (
         <div className='activity'>
@@ -31,10 +23,10 @@ export default function ActivityChart(data) {
                     <XAxis dataKey='calories' type='number' tickLine={false} axisLine={false}/>
                     <YAxis dataKey='kilogram' type='number' tickLine={false} orientation='right' axisLine={false}
                            domain={['dataMin - 1', 'dataMax + 1']}/>
-                    <YAxis dataKey='calories' type='number' yAxisId='calorie' hide/>
+                    <YAxis dataKey={"calories"} type={"number"} yAxisId={"calorie"} hide/>
 
                     <Legend verticalAlign='top' align='right' iconType='circle' wrapperStyle={{marginTop: '-23px'}}
-                            formatter={(value, entry, index) => <span className='text-color'>{value}</span>}/>
+                            formatter={(value) => <span className='text-color'>{value}</span>}/>
                     <Bar name='Poids (kg)' dataKey='kilogram' radius={[10, 10, 0, 0]} barSize={7} fill='#282D30'/>
                     <Bar name='Calories brûlées (kCal)' dataKey='calories' radius={[10, 10, 0, 0]} barSize={7}
                          yAxisId='calorie' fill='#E60000'/>

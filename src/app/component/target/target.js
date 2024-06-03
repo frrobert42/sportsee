@@ -1,13 +1,9 @@
 'use client';
 import {Legend, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
 import "./target.css";
+import PropTypes from 'prop-types';
 
 export default function Target(props) {
-
-    console.log(props.sessions);
-    const xAxis = {
-        // dataKey={'day'} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false}
-    };
 
     return (
         <div className='target bg-red-600'>
@@ -41,3 +37,7 @@ const TooltipTarget = ({ active, payload }) => {
     }
     return null
 }
+
+Target.propTypes = {
+    sessions: PropTypes.array.isRequired,
+};

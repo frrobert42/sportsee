@@ -1,0 +1,22 @@
+main {
+    padding-top: 50px;
+    padding-left: 160px;
+}
+
+#charts {
+    margin-top: 40px;
+}
+
+.stats-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+
+
+@media (max-width: 768px) {
+    .stats-col {
+
+    }
+}
