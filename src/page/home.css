@@ -1,0 +1,33 @@
+main {
+    padding-top: 20px;
+    padding-left: 100px;
+}
+
+#charts {
+    margin-top: 40px;
+}
+
+.stats-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+
+.congrats {
+    margin-top: 5px;
+}
+
+.gap-y-7 {
+    gap: 40px 0;
+}
+
+.gap-x-5 {
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .stats-col {
+
+    }
+}

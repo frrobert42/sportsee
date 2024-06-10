@@ -1,0 +1,14 @@
+header {
+    height: 91px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+header img {
+    height: 58px;
+    margin: auto 0 auto 0;
+}
+
+header span {
+    margin: auto;
+}
