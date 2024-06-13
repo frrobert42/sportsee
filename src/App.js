@@ -6,11 +6,15 @@ import Header from "./component/header/header";
 import Navbar from "./component/navbar/navbar";
 
 function App() {
-  let [user, setUser] = useState(null);
-  let [activity, setActivity] = useState(null);
-  let [sessions, setSessions] = useState(null);
-  let [performance, setPerformance] = useState(null);
+    let [user, setUser] = useState(null);
+    let [activity, setActivity] = useState(null);
+    let [sessions, setSessions] = useState(null);
+    let [performance, setPerformance] = useState(null);
     let userId = 12;
+
+    // Get url parameter userId
+    const userIdParam = new URLSearchParams(window.location.search).get('userId');
+    if (userIdParam) userId = +userIdParam;
 
     useEffect(() => {
         getUser(userId).then((response) => setUser(response.data));

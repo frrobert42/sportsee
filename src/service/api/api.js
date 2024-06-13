@@ -2,7 +2,7 @@ import axios from "axios";
 import {USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE} from "../mockData/data";
 
 export const getUser = async (userId) => {
-    if (process.env.production === "true") {
+    if (process.env.REACT_APP_PRODUCTION === "true") {
         let data = await axios.get(`http://localhost:3000/user/${userId}`);
         return data?.data;
     } else {
@@ -11,7 +11,7 @@ export const getUser = async (userId) => {
 }
 
 export const getUserActivity = async (userId) => {
-    if (process.env.production === 'true') {
+    if (process.env.REACT_APP_PRODUCTION === "true") {
         let data =  await axios.get(`http://localhost:3000/user/${userId}/activity`);
         return data?.data;
     } else {
@@ -20,7 +20,7 @@ export const getUserActivity = async (userId) => {
 }
 
 export const getUserSessions = async (userId) => {
-    if (process.env.production === 'true') {
+    if (process.env.REACT_APP_PRODUCTION === "true") {
         let data =  await axios.get(`http://localhost:3000/user/${userId}/average-sessions`);
         return data?.data;
     } else {
@@ -29,7 +29,7 @@ export const getUserSessions = async (userId) => {
 }
 
 export const getUserPerformance = async (userId) => {
-    if (process.env.production === 'true') {
+    if (process.env.REACT_APP_PRODUCTION === "true") {
         let data =  await axios.get(`http://localhost:3000/user/${userId}/performance`);
         return data?.data;
     } else {
