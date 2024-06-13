@@ -3,6 +3,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
+    background: #FFF;
 }
 
 #root {
@@ -39,8 +40,20 @@ body {
     color: #000;
 }
 
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
 .w-100 {
     width: 100%;
+}
+
+.m-auto {
+    margin: auto;
 }
 
 .flex {
@@ -59,6 +72,10 @@ body {
     flex-wrap: wrap;
 }
 
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+
 .justify-between {
     justify-content: space-between;
 }
@@ -67,3 +84,15 @@ body {
     justify-content: flex-end;
 }
 
+.text-2xl {
+    font-size: 2rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;
+}

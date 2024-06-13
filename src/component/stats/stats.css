@@ -5,3 +5,26 @@
     background: #FBFBFB;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 }
+
+.stats img {
+    margin: 32px;
+}
+
+.stats-content {
+    margin: auto 0;
+}
+
+.stats .stats-content h2 {
+    display: block;
+    color: #282D30;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+.stats .stats-content p {
+    color: #74798C;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}

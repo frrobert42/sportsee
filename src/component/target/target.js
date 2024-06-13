@@ -5,8 +5,10 @@ import PropTypes from 'prop-types';
 
 export default function Target(props) {
 
+    if (!props.sessions) return (<></>);
+
     return (
-        <div className='target bg-red-600'>
+        <div className='target'>
             <h3> Durée moyenne des sessions </h3>
             <ResponsiveContainer width='100%' height='100%' className={"px-0"}>
                 <LineChart
@@ -15,8 +17,8 @@ export default function Target(props) {
                     data={props.sessions}
                     margin={{top: 5, right: 10, left: 10, bottom: 5}}
                 >
-                    <XAxis dataKey={'day'} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false}></XAxis>
-                    <YAxis padding={{top: 50}} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false} hide></YAxis>
+                    <XAxis dataKey={'day'} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false} />
+                    <YAxis padding={{top: 50}} stroke={'#FFFFFF'} opacity={0.5} tickLine={false} axisLine={false} hide />
                     <Tooltip content={<TooltipTarget/>}/>
                     <Legend/>
                     <Line type='basis' dataKey='sessionLength' stroke='#FFFFFF' dot={false} strokeWidth={2}
@@ -30,7 +32,7 @@ export default function Target(props) {
 const TooltipTarget = ({ active, payload }) => {
     if (active && payload && payload.length) {
         return (
-            <div className='custom-tooltip-objectif'>
+            <div className='custom-tooltip-target'>
                 <p> {`${payload[0].value} min`}</p>
             </div>
         )

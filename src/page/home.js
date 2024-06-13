@@ -7,14 +7,19 @@ import Target from "../component/target/target";
 import Rating from "../component/rating/rating";
 import Stats from "../component/stats/stats";
 import Radar from "../component/radar/radar";
+// icons
+import caloriesIcon from "../img/calories-icon.svg";
+import carbsIcon from "../img/carbs-icon.svg";
+import fatIcon from "../img/fat-icon.png";
+import proteinIcon from "../img/protein-icon.svg";
 
 
 export default function Home(props) {
     if (!props) return (<></>);
     let user = props.User;
     let activity = props.Activity;
-    let sessions = props.Session.sessions;
-    console.log(props);
+    let sessions = props.Session;
+    console.log(user);
     let performance = props.Performance;
     if (!user?.keyData || !activity || !sessions || !performance) return (<></>);
 
@@ -30,16 +35,16 @@ export default function Home(props) {
                 <div className={"flex flex-col gap-y-7"}>
                     {activity && <ActivityChart activity={activity} />}
                     <div className={"flex flex-row flex-wrap gap-x-5 mt-100"}>
-                        {sessions && <Target sessions={sessions} />}
+                        {sessions && <Target sessions={sessions.sessions} />}
                         {performance && <Radar performance={performance}/>}
                         {user && <Rating score={user.todayScore}/>}
                     </div>
                 </div>
                 <div className={"stats-col"}>
-                    <Stats stats={{title: "Calories", icon: '', unit: "kcal" , value: user.keyData.calorieCount}} />
-                    <Stats stats={{title: "Proteines", icon: '', unit: "g" , value: user.keyData.proteinCount}} />
-                    <Stats stats={{title: "Glucides", icon: '', unit: "g" , value: user.keyData.carbohydrateCount}} />
-                    <Stats stats={{title: "Lipides", icon: '', unit: "g" , value: user.keyData.lipidCount}} />
+                    <Stats stats={{title: "Calories", icon: caloriesIcon, unit: "kcal" , value: user.keyData.calorieCount}} />
+                    <Stats stats={{title: "Proteines", icon: proteinIcon, unit: "g" , value: user.keyData.proteinCount}} />
+                    <Stats stats={{title: "Glucides", icon: carbsIcon, unit: "g" , value: user.keyData.carbohydrateCount}} />
+                    <Stats stats={{title: "Lipides", icon: fatIcon, unit: "g" , value: user.keyData.lipidCount}} />
                 </div>
             </div>
         </main>
