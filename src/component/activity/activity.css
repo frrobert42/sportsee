@@ -7,3 +7,21 @@
     background: #FBFBFB;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 }
+
+.icon {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #E60000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon.weight {
+    background: #282D30;
+}
+
+.icon.calories {
+    background: #E60000;
+}

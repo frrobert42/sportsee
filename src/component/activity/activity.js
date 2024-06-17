@@ -1,6 +1,7 @@
 'use client';
 import "./activity.css";
-import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis} from "recharts";
+import ActivityToolType from "../activity-tooltip/activity-tooltip";
 
 export default function ActivityChart(data) {
 
@@ -15,7 +16,19 @@ export default function ActivityChart(data) {
 
     return (
         <div className='activity'>
-            <h3> Activité quotidienne </h3>
+            <div className={"flex flex-nowrap justify-between"}>
+                <h3> Activité quotidienne </h3>
+                <div className={"flex flex-row flex-nowrap"}>
+                    <div className={"flex flex-row"}>
+                        <span className={"icon weight"}/>
+                        <span>Poids (kg)</span>
+                    </div>
+                    <div className={"flex flex-row"}>
+                        <span className={"icon cal"}/>
+                        <span>Calories brûlées (kCal)</span>
+                    </div>
+                </div>
+            </div>
             <ResponsiveContainer width='100%' height='100%'>
                 <BarChart width='835' height='320' data={dataWithIndex}>
                     <CartesianGrid strokeDasharray='3 3' vertical={false}/>
@@ -24,9 +37,7 @@ export default function ActivityChart(data) {
                     <YAxis dataKey='kilogram' type='number' tickLine={false} orientation='right' axisLine={false}
                            domain={['dataMin - 1', 'dataMax + 1']}/>
                     <YAxis dataKey={"calories"} type={"number"} yAxisId={"calorie"} hide/>
-
-                    <Legend verticalAlign='top' align='right' iconType='circle' wrapperStyle={{marginTop: '-23px'}}
-                            formatter={(value) => <span className='text-color'>{value}</span>}/>
+                    <Tooltip content={<ActivityToolType/>}/>
                     <Bar name='Poids (kg)' dataKey='kilogram' radius={[10, 10, 0, 0]} barSize={7} fill='#282D30'/>
                     <Bar name='Calories brûlées (kCal)' dataKey='calories' radius={[10, 10, 0, 0]} barSize={7}
                          yAxisId='calorie' fill='#E60000'/>
