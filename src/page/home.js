@@ -12,16 +12,17 @@ import caloriesIcon from "../img/calories-icon.svg";
 import carbsIcon from "../img/carbs-icon.svg";
 import fatIcon from "../img/fat-icon.png";
 import proteinIcon from "../img/protein-icon.svg";
+import NotFound from "../component/not-found/not-found";
 
 
 export default function Home(props) {
-    if (!props) return (<></>);
+
     let user = props.User;
     let activity = props.Activity;
     let sessions = props.Session;
-    console.log(user);
     let performance = props.Performance;
-    if (!user?.keyData || !activity || !sessions || !performance) return (<></>);
+
+    if (!user?.keyData || !activity || !sessions || !performance) return (<NotFound />);
 
     return (
         <main className="bg-white text-black">
