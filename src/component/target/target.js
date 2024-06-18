@@ -40,7 +40,7 @@ export default function Target(props) {
                         tickLine={true}
                         stroke="red"
                         padding={{right:5, left:5}}
-                        tick={{ fontSize: 12, stroke: "white", opacity: 0.8}}
+                        tick={{ fontSize: 12, fill: '#fff', opacity: 0.6}}
                     />
                     <YAxis
                         dataKey="sessionLength"

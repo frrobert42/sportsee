@@ -3,6 +3,14 @@ main {
     padding-left: 100px;
 }
 
+main h1 {
+    color: #000;
+    font-family: Roboto, serif;
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 24px; /* 50% */
+}
+
 #charts {
     margin-top: 40px;
 }
@@ -16,6 +24,11 @@ main {
 
 .congrats {
     margin-top: 5px;
+    color: #000;
+    font-family: Roboto, serif;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
 }
 
 .gap-y-7 {

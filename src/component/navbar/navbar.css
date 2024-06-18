@@ -7,6 +7,7 @@
 
 .navbar-icon {
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .navbar div.navbar-link {

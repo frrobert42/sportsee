@@ -25,3 +25,27 @@
 .icon.calories {
     background: #E60000;
 }
+
+.activity div h3 {
+    color: #20253A;
+    font-family: Roboto, serif;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 24px; /* 160% */
+}
+
+.activity-icon-legend {
+    color: #74798C;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.cal-m {
+    margin: 0 30px;
+}
+
+.activity svg {
+    margin: 0 10px;
+}

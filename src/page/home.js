@@ -25,7 +25,7 @@ export default function Home(props) {
     if (!user?.keyData || !activity || !sessions || !performance) return (<NotFound />);
 
     return (
-        <main className="bg-white text-black">
+        <main className="bg-white text-black mx-auto">
             <h1>Bonjour
                 {user?.userInfos?.firstName &&
                     <span className={"text-red-600"}>&nbsp;{user.userInfos.firstName}</span>
