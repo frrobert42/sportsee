@@ -3,7 +3,7 @@ import "./not-found.css";
 export default function NotFound() {
     return (
         <div>
-            <h1>404 Not Found</h1>
+            <h4>404 Not Found</h4>
         </div>
     );
 }

@@ -5,14 +5,9 @@ import PropTypes from "prop-types";
 import LegendComponent from "../legend/legend";
 
 export default function Rating(props) {
-    // console.log(props);
-    // console.log(props.todayScore);
-    // let todayScore = [
-    //     {todayScore: props.todayScore || props.score * 100 || 75},
-    //     {fill: "#ffffff00", todayScore: 100},
-    // ];
+    console.log(props);
     let todayScore = [
-        {todayScore: 75},
+        {todayScore: props.todayScore || props.score * 100},
         {fill: "#ffffff00", todayScore: 100},
     ];
 
@@ -30,7 +25,7 @@ export default function Rating(props) {
     )
 }
 
-// Rating.propTypes = {
-//     todayScore: PropTypes.number,
-//     score: PropTypes.number,
-// };
+Rating.propTypes = {
+    todayScore: PropTypes.number,
+    score: PropTypes.number,
+};

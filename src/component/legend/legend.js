@@ -1,3 +1,5 @@
+import "./legend.css";
+
 export default function LegendComponent(props) {
     if (!props) return (<></>);
     return (

@@ -1,7 +1,7 @@
 import './App.css';
 import Home from "./page/home";
 import {useEffect, useState} from "react";
-import {getUser, getUserActivity, getUserPerformance, getUserSessions} from "./service/api/api";
+import ApiService from "./service/api/api";
 import Header from "./component/header/header";
 import Navbar from "./component/navbar/navbar";
 import NotFound from "./component/not-found/not-found";
@@ -19,10 +19,11 @@ function App() {
     else if(userId !== +userIdParam)  userId = +userIdParam;
 
     useEffect(() => {
-        getUser(userId).then((response) => setUser(response.data));
-        getUserActivity(userId).then((response) => setActivity(response.data));
-        getUserSessions(userId).then((response) => setSessions(response.data));
-        getUserPerformance(userId).then((response) => setPerformance(response.data));
+        const apiService = new ApiService();
+        apiService.getUser(userId).then((response) => setUser(response.data));
+        apiService.getUserActivity(userId).then((response) => setActivity(response.data));
+        apiService.getUserSessions(userId).then((response) => setSessions(response.data));
+        apiService.getUserPerformance(userId).then((response) => setPerformance(response.data));
     }, [userId]);
 
     return (
