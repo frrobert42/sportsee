@@ -26,12 +26,14 @@ export default function Home(props) {
 
     return (
         <main className="bg-white text-black mx-auto">
-            <h1>Bonjour
-                {user?.userInfos?.firstName &&
-                    <span className={"text-red-600"}>&nbsp;{user.userInfos.firstName}</span>
-                }
-            </h1>
-            <p className={"congrats"}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            <div className={"title-main"}>
+                <h1>Bonjour
+                    {user?.userInfos?.firstName &&
+                        <span className={"text-red-600"}>&nbsp;{user.userInfos.firstName}</span>
+                    }
+                </h1>
+                <p className={"congrats"}>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
+            </div>
             <div id="charts" className={"flex flex-row flex-wrap"}>
                 <div className={"flex flex-col gap-y-7"}>
                     {activity && <ActivityChart activity={activity} />}

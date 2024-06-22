@@ -5,6 +5,20 @@
     margin: 0;
 }
 
+/* media query for mobile devices */
+@media (max-width: 1248px) {
+    .navbar {
+        min-height: 140vh !important;
+    }
+}
+/* media query for tablette */
+@media (min-width: 1249px) and (max-width: 1536px) {
+    .navbar {
+        min-height: 122vh !important;
+    }
+}
+
+
 .navbar-icon {
     margin-bottom: 20px;
     cursor: pointer;
