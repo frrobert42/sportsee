@@ -1,6 +1,7 @@
 import axios from "axios";
 import {USER_ACTIVITY, USER_AVERAGE_SESSIONS, USER_MAIN_DATA, USER_PERFORMANCE} from "../mockData/data";
 
+// classe de modélisation de l'api : ApiService
 export default class ApiService {
     async getUser (userId)  {
         if (process.env.REACT_APP_PRODUCTION === "true") {
