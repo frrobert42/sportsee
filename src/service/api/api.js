@@ -5,25 +5,12 @@ export default class ApiService {
     async getUser (userId)  {
         if (process.env.REACT_APP_PRODUCTION === "true") {
             let data = await axios.get(`http://localhost:3000/user/${userId}`)
-                .catch(async function (error) {
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                        // http.ClientRequest in node.js
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });
-            if (data?.data) return data?.data;
+                .catch(function (error) {});
+            if (!data) {
+                console.log("No user found for user with id: ", userId);
+                return null;
+            }
+            else if (data?.data) return data?.data;
         }
         return await getMockUser(userId);
     }
@@ -31,25 +18,9 @@ export default class ApiService {
     async getUserActivity  (userId)  {
         if (process.env.REACT_APP_PRODUCTION === "true") {
             let data =  await axios.get(`http://localhost:3000/user/${userId}/activity`)
-                .catch(async function (error) {
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                        // http.ClientRequest in node.js
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });
-            if (data?.data) return data?.data;
+                .catch(function (error) {});
+            if (!data) return null;
+            else if (data?.data) return data?.data;
         }
         return await getMockUserActivity(userId);
     }
@@ -57,25 +28,9 @@ export default class ApiService {
     async getUserSessions (userId)  {
         if (process.env.REACT_APP_PRODUCTION === "true") {
             let data =  await axios.get(`http://localhost:3000/user/${userId}/average-sessions`)
-                .catch(async function (error) {
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                        // http.ClientRequest in node.js
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });
-            if (data?.data) return data?.data;
+                .catch(function (error) {});
+            if (!data) return null;
+            else if (data?.data) return data?.data;
         }
         return await getMockUserSessions(userId);
     }
@@ -83,25 +38,9 @@ export default class ApiService {
     async getUserPerformance (userId)  {
         if (process.env.REACT_APP_PRODUCTION === "true") {
             let data = await axios.get(`http://localhost:3000/user/${userId}/performance`)
-                .catch(function (error) {
-                    if (error.response) {
-                        // The request was made and the server responded with a status code
-                        // that falls out of the range of 2xx
-                        console.log(error.response.data);
-                        console.log(error.response.status);
-                        console.log(error.response.headers);
-                    } else if (error.request) {
-                        // The request was made but no response was received
-                        // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                        // http.ClientRequest in node.js
-                        console.log(error.request);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        console.log('Error', error.message);
-                    }
-                    console.log(error.config);
-                });
-            if (data?.data) return data?.data;
+                .catch(function (error) {});
+            if (!data) return null;
+            else if (data?.data) return data?.data;
         }
         return await getMockUserPerformance(userId);
     }

@@ -1,6 +1,7 @@
 'use client';
 import './radar.css';
 import { Legend, PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
 function PerformanceRadar (props) {
     let formattedPerformance = [];
@@ -14,7 +15,7 @@ function PerformanceRadar (props) {
     ]
 
     kinds.forEach((kind) => {
-        let value = props.performance?.data.find(item => props.performance.kind[item.kind] === kind.en);
+        let value = props?.performance?.data?.find(item => props?.performance?.kind[item.kind] === kind.en);
        formattedPerformance.push({
            value: value?.value || 0,
            kind: kind.translation
@@ -36,3 +37,7 @@ function PerformanceRadar (props) {
 }
 
 export default PerformanceRadar
+
+PerformanceRadar.propTypes = {
+    performance: PropTypes.object
+}

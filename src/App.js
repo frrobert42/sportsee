@@ -20,10 +20,10 @@ function App() {
 
     useEffect(() => {
         const apiService = new ApiService();
-        apiService.getUser(userId).then((response) => setUser(response.data));
-        apiService.getUserActivity(userId).then((response) => setActivity(response.data));
-        apiService.getUserSessions(userId).then((response) => setSessions(response.data));
-        apiService.getUserPerformance(userId).then((response) => setPerformance(response.data));
+        apiService.getUser(userId).then((response) => setUser(response?.data || null));
+        apiService.getUserActivity(userId).then((response) => setActivity(response?.data|| null));
+        apiService.getUserSessions(userId).then((response) => setSessions(response?.data|| null));
+        apiService.getUserPerformance(userId).then((response) => setPerformance(response?.data|| null));
     }, [userId]);
 
     return (
@@ -31,12 +31,13 @@ function App() {
             <Header />
             <div className={"main-container"}>
                 <Navbar />
-                { user && activity && sessions && performance &&
-                    <Home User={user} Activity={activity} Session={sessions} Performance={performance} />
+                {
+                    !userId &&
+                    <NotFound />
                 }
                 {
-                    (!user || !activity || !sessions || !performance) &&
-                    <NotFound />
+                    !!userId &&
+                    <Home User={user} Activity={activity} Session={sessions} Performance={performance} />
                 }
             </div>
         </>

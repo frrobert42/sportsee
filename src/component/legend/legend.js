@@ -1,8 +1,9 @@
 import "./legend.css";
+import PropTypes from "prop-types";
 
 export default function LegendComponent(props) {
-    if (!props.payload[0]?.payload?.value) return (<></>);
-    const value = props.payload[0].payload.value;
+    let value = 0;
+    if (props?.payload[0]?.payload?.value) value = props.payload[0].payload.value;
     return (
         <div className={"custom-legend-rating"}>
             <p className='text-black'>
@@ -12,3 +13,7 @@ export default function LegendComponent(props) {
         </div>
     )
 }
+
+LegendComponent.propTypes = {
+    payload: PropTypes.array,
+};

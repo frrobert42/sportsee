@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import TargetToolType from "../target-tooltip/target-tooltip";
 
 export default function Target(props) {
-    const formatData = props.sessions.map((data) => {
+    let formatData = props?.sessions?.map((data) => {
 
         switch (data.day) {
             case 1:
@@ -27,7 +27,12 @@ export default function Target(props) {
         }
     });
 
-    if (!props.sessions || !formatData) return (<></>);
+    if (!formatData) {
+        // If no data is available, we create an array with 0 values
+        formatData = [{day: "L", sessionLength: 0}, {day: "M", sessionLength: 0}, {day: "M", sessionLength: 0},
+            {day: "J", sessionLength: 0}, {day: "V", sessionLength: 0}, {day: "S", sessionLength: 0},
+            {day: "D", sessionLength: 0}];
+    }
 
     return (
         <div className='target'>
@@ -63,5 +68,5 @@ export default function Target(props) {
 }
 
 Target.propTypes = {
-    sessions: PropTypes.array.isRequired,
+    sessions: PropTypes.array,
 };

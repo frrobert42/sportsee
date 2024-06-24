@@ -49,5 +49,6 @@ main h1 {
     .stats-col {
         flex-direction: row !important;
         flex-wrap: wrap;
+        gap: 5px;
     }
 }

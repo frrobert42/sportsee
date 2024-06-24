@@ -2,8 +2,8 @@ import "./not-found.css";
 
 export default function NotFound() {
     return (
-        <div>
-            <h4>404 Not Found</h4>
+        <div className={"not-found"}>
+            <h1>Utilisateur non trouvé</h1>
         </div>
     );
 }

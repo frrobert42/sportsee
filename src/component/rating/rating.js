@@ -5,12 +5,9 @@ import PropTypes from "prop-types";
 import LegendComponent from "../legend/legend";
 
 export default function Rating(props) {
-    let userScore = 100;
-    if (props.todayScore) {
-        props.todayScore > 1 ? userScore = props.todayScore : userScore = props.todayScore * 100;
-    } else if (props.score) {
-        props.score > 1 ? userScore = props.score : userScore = props.score * 100;
-
+    let userScore = 0;
+    if (props.score) {
+        userScore = props.score * 100;
     }
     let todayScore = [
         {todayScore: userScore},

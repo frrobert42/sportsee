@@ -5,14 +5,16 @@ import ActivityToolType from "../activity-tooltip/activity-tooltip";
 
 export default function ActivityChart(data) {
 
-    if (!data.activity.sessions) return (<></>);
-
-    let dataWithIndex = data.activity.sessions.map((item, index) => {
+    let dataWithIndex = data?.activity?.sessions?.map((item, index) => {
         return {
             ...item,
             index: index + 1
         }
     });
+
+    if (!data?.activity?.sessions) {
+        dataWithIndex = [];
+    }
 
     return (
         <div className='activity'>

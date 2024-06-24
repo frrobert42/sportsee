@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default function Stats(props) {
 
-    if (!props.stats) return (<></>);
+    if (!props?.stats) return (<></>);
 
     return (
         <div className={"stats text-center flex flex-row flex-nowrap"}>

@@ -22,7 +22,11 @@ export default function Home(props) {
     let sessions = props.Session;
     let performance = props.Performance;
 
-    if (!user?.keyData || !activity || !sessions || !performance) return (<NotFound />);
+    if (!user) return (
+        <div className={"w-100 text-center"}>
+            <NotFound />
+        </div>
+    );
 
     return (
         <main className="bg-white text-black mx-auto">
@@ -36,18 +40,43 @@ export default function Home(props) {
             </div>
             <div id="charts" className={"flex flex-row flex-wrap"}>
                 <div className={"flex flex-col gap-y-7"}>
-                    {activity && <ActivityChart activity={activity} />}
+                    <ActivityChart activity={activity} />
                     <div className={"flex flex-row flex-wrap gap-x-5 mt-100"}>
-                        {sessions && <Target sessions={sessions.sessions} />}
-                        {performance && <Radar performance={performance}/>}
-                        {user && <Rating score={user.todayScore}/>}
+                        <Target sessions={sessions?.sessions} />
+                        <Radar performance={performance}/>
+                        <Rating score={user?.todayScore || user?.score || 0}/>
                     </div>
                 </div>
                 <div className={"stats-col"}>
-                    <Stats stats={{title: "Calories", icon: caloriesIcon, unit: "kcal" , value: user.keyData.calorieCount}} />
-                    <Stats stats={{title: "Proteines", icon: proteinIcon, unit: "g" , value: user.keyData.proteinCount}} />
-                    <Stats stats={{title: "Glucides", icon: carbsIcon, unit: "g" , value: user.keyData.carbohydrateCount}} />
-                    <Stats stats={{title: "Lipides", icon: fatIcon, unit: "g" , value: user.keyData.lipidCount}} />
+
+                    <Stats stats={{
+                            title: "Calories",
+                            icon: caloriesIcon,
+                            unit: "kcal" ,
+                            value: user?.keyData?.calorieCount || 0
+                    }} />
+
+                    <Stats stats={{
+                        title: "Proteines",
+                        icon: proteinIcon,
+                        unit: "g" ,
+                        value: user?.keyData?.proteinCount || 0
+                    }} />
+
+                    <Stats stats={{
+                        title: "Glucides",
+                        icon: carbsIcon,
+                        unit: "g" ,
+                        value: user?.keyData?.carbohydrateCount || 0
+                    }} />
+
+                    <Stats stats={{
+                        title: "Lipides",
+                        icon: fatIcon,
+                        unit: "g" ,
+                        value: user?.keyData?.lipidCount || 0
+                    }} />
+
                 </div>
             </div>
         </main>
@@ -55,8 +84,8 @@ export default function Home(props) {
 }
 
 Home.propTypes = {
-    User: PropTypes.object.isRequired,
-    Activity: PropTypes.object.isRequired,
-    Session: PropTypes.object.isRequired,
-    Performance: PropTypes.object.isRequired,
+    User: PropTypes.object,
+    Activity: PropTypes.object,
+    Session: PropTypes.object,
+    Performance: PropTypes.object,
 };
