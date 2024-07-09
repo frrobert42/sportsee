@@ -33,3 +33,16 @@
     width: 95px;
     margin: 30px 90px -30px auto;
 }
+
+.custom-legend-rating p.text-black {
+    color: #282D30;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.custom-legend-rating p.text-gray-600 {
+    color: #74798C;
+    font-size: 16px;
+    font-weight: 500;
+}
